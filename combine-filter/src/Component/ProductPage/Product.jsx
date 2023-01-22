@@ -10,7 +10,7 @@ const Product = () => {
   return (
     <div className="productPage">
       <Filter />
-      <div>
+      <div style={{width:"100%"}}>
         {tempProd.length > 0 ? (
           <div
             style={{
