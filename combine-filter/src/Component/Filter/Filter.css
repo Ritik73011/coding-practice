@@ -1,0 +1,13 @@
+.filterSection{
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0px 0px 8px grey;
+    padding-left: 16px;
+}
+@media only screen and (max-width: 600px) {
+    .filterSection {
+       display: none;
+    }
+}
