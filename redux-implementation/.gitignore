@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/src/private.js
 # production
 /build
 
