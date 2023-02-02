@@ -1,18 +1,26 @@
 import { Box } from "@mui/material";
 import { useEffect } from "react";
-import { useState } from "react";
 import { api } from "../../private";
+import {useDispatch,useSelector} from 'react-redux'
+import wallActions from '../../Actions/wall.actions'
 const Wallpapers = () => {
-  const [wall, setWall] = useState([]);
+ 
+  const dispatch = useDispatch();
 
   const fetchWall = async () => {
     const res = await fetch(api);
     const wallpapers = await res.json();
-    setWall(wallpapers);
+    wallActions(wallpapers,dispatch);
   };
+  const wallpapers = useSelector((data)=>{
+    return data.wallReducer.wallpapers
+  })
 
   useEffect(() => {
-    fetchWall();
+    if(wallpapers.length===0){
+      fetchWall();
+      console.log("called");
+    }
   }, []);
   return (
     <Box
@@ -26,7 +34,7 @@ const Wallpapers = () => {
     >
 
     {
-        wall.length>0?wall.map((ele)=>{
+        wallpapers.length>0?wallpapers.map((ele)=>{
             return <Box key={ele.id}>
                 <img src={ele.urls.regular} alt={ele.alt_description} style={{width:"100%"}}/>
             </Box>

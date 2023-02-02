@@ -3,7 +3,7 @@ const initialData = {
 }
 
 const wallReducer = (data = initialData,actions)=>{
-    switch(actions.types){
+    switch(actions.type){
         case "WALL":{
             return {
                 ...data, wallpapers:actions.payload,
