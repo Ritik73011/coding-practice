@@ -39,7 +39,7 @@ const Wallpapers = () => {
     {
         wallpapers.length>0?wallpapers.map((ele)=>{
             return <Box key={ele.id}>
-                <img onClick={()=>handleClick(ele.id)} src={ele.urls.regular} alt={ele.alt_description} style={{width:"100%"}}/>
+                <img onClick={()=>handleClick(ele.id)} src={ele.urls.regular} alt={ele.alt_description} style={{width:"100%",cursor:"pointer"}}/>
             </Box>
         }):<Box>Loading...</Box>
     }
